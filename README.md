@@ -8,9 +8,9 @@ texts for a a medical record, research paper and lab form.
 
 ![screencast](screencast-short.gif)
 
-## This is a conversion of the GoogleCloudPlatform/healthcare-nlp-visualizer-demo Cloud Function
-## based demo to AppEngine standard.
-1. In this case, AppEngine is simpler to deploy than a Cloud Function and a separate web server.
+## GoogleCloudPlatform/healthcare-nlp-visualizer-demo 
+1. This is a fork and conversion of that project code to AppEngine standard.
+1. In this case, AppEngine is simpler to deploy than a Cloud Function with a separate web server.
 1. The demo app can be easily protected by IAP (https://cloud.google.com/iap/docs/concepts-overview).
 
 ## Prerequisites 
@@ -19,6 +19,10 @@ texts for a a medical record, research paper and lab form.
 1. Complete the Healthcare NLP [How-to Guide](https://cloud.google.com/healthcare/docs/how-tos/nlp).
     - Note: For the purposes of this demo, grant the new service account "Viewer", not "Owner".
 1. Familiarity with Google Cloud AppEngine standard.
+1. Familiarity with Google Cloud Identity Aware Proxy
+    - This code validates identity with JWT headers set by IAP.
+    - You must enable IAP for this application to work.
+    - You must grant the application user `IAP Web Application User` (https://cloud.google.com/iap/docs/concepts-overview#authorization).
 
 ## Set Up Instructions
 
@@ -38,5 +42,4 @@ Please note, this code is NOT meant for production use.
     - The App Engine deployment region CANNOT BE CHANGED after application creation. 
     - Almost certainly, you will want to deploy to region `us-central` otherwise known as `us-central1` in this case. 
     - Currently, the NLP API is only available in two regions, thus the selection of `us-central` for the application.
-1. Copy the endpoint for your Cloud Function.
 
