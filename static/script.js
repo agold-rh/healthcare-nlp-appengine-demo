@@ -136,7 +136,7 @@ function analyse_text() {
   // get text
   const text = app.input_text;
   $.ajax({
-    url: 'https://REPLACE-your-AppEngine-url-here.uc.r.appspot.com/analyzeDocument',
+    url: 'https://REPLACE-PROJECT-ID.uc.r.appspot.com/analyzeDocument',
     type: 'POST',
     data: {'text': text},
     dataType: 'JSON',
@@ -152,14 +152,15 @@ function analyse_text() {
       app.medical_object = null;
     },
   })
-      .done(function(data) {
-        // stop loading
-        app.last_submitted_text = text;
-        app.loading = false;
-      })
-      .fail(function(data) {
-
-      });
+  .done(function(data) {
+    // stop loading
+    app.last_submitted_text = text;
+    app.loading = false;
+  })
+  .fail(function(data) {
+    console.log("Failed to call /analyzeDocument");
+    console.log(JSON.stringify(data));
+  });
 }
 
 function downloadResponse() {
