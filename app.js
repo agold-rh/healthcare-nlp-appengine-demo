@@ -98,7 +98,7 @@ app.post('/analyzeDocument', async (req, res) => {
 
   // Standard GCP IAP JWT header validation
   const auth = new google.auth.GoogleAuth({
-    keyFile: `${MY_KEY_PATH}`,
+    keyFile: `${KEY_PATH}`,
     scopes: ['https://www.googleapis.com/auth/cloud-healthcare'],
   });
 
